@@ -1,0 +1,88 @@
+{
+    "name": "semaphore-ci-status",
+    "displayName": "Semaphore CI Status",
+    "description": "Monitor project's Semaphore CI status from Visual Studio Code.",
+    "version": "0.0.1",
+    "publisher": "ksokolovic",
+    "author": {
+        "name": "Kemal Sokolovic",
+        "email": "kemal.sokolovic@gmail.com",
+        "url": "http://www.devfort.org"
+    },
+    "contributors": [
+        {
+            "name": "Milos Panasiuk",
+            "email": "milos.panasiuk@gmail.com",
+            "url": "http://www.devfort.org"
+        }
+    ],
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "semaphore",
+        "semaphore ci"
+    ],
+    "activationEvents": [
+        "onCommand: semaphoreci.updateStatus",
+        "onCommand: semaphoreci.viewInSemaphore",
+        "*"
+    ],
+    "main": "./out/extension",
+    "icon": "images/logo.png",
+    "license": "MIT",
+    "homepage": "https://github.com/ksokolovic/semaphore-ci-status",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ksokolovic/semaphore-ci-status.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ksokolovic/semaphore-ci-status/issues"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "semaphoreci.updateStatus",
+                "title": "SemaphoreCI: Update Status"
+            },
+            {
+                "command": "semaphoreci.viewInSemaphore",
+                "title": "SemaphoreCI: View Branch in Semaphore"
+            }
+        ],
+        "configuration": [
+            {
+                "type": "object",
+                "title": "Semaphore CI Status Configuration",
+                "properties": {
+                    "semaphoreci.pollInterval": {
+                        "type": "integer",
+                        "default": 0,
+                        "description": "Defines an interval in minutes for automatic Semaphore status update. 0 means no automatic update."
+                    }
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "dependencies": {
+        "@types/es6-promise": "^3.3.0",
+        "read-yaml": "^1.1.0",
+        "node-semaphoreci": "1.0.3",
+        "open": "0.0.5"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
