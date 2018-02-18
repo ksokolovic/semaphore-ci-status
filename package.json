@@ -3,7 +3,7 @@
     "displayName": "Semaphore CI Status",
     "description": "Monitor project's Semaphore CI status from Visual Studio Code.",
     "version": "0.0.1",
-    "publisher": "ksokolovic",
+    "publisher": "devfort",
     "author": {
         "name": "Kemal Sokolovic",
         "email": "kemal.sokolovic@gmail.com",
